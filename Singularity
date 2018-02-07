@@ -46,7 +46,6 @@ From: ubuntu:latest
     ln -fs /opt/julia-0.6.2-dev /opt/julia-0.6
 
     mkdir -p /workdir
-    chmod -R 777 /workdir
     
     export JULIA_PKGDIR=/workdir/.julia
     
@@ -56,3 +55,7 @@ From: ubuntu:latest
     /opt/julia-0.6/bin/julia -e 'Pkg.add("JLD")'
     /opt/julia-0.6/bin/julia -e 'Pkg.add("ArgParse")'
     /opt/julia-0.6/bin/julia -e 'Pkg.add("LightXML")'
+
+    rm -rf /workdir/.julia/.cache
+    rm -rf /workdir/.julia/lib
+    chmod -R 777 /workdir
