@@ -1,10 +1,6 @@
 Bootstrap: docker
 From: ubuntu:latest
 
-%runscript
-
-    echo "ReGROUND image. This will be the whole pipeline."
-
 %environment
    
    ROS_DISTRO=lunar
@@ -50,7 +46,7 @@ From: ubuntu:latest
     ln -fs /opt/julia-0.6.2-dev /opt/julia-0.6
 
     mkdir -p /workdir
-    sudo chmod -R 777 /workdir
+    chmod -R 777 /workdir
     
     export JULIA_PKGDIR=/workdir/.julia
     
