@@ -50,7 +50,9 @@ From: ubuntu:latest
     ln -fs /opt/julia-0.6.2-dev /opt/julia-0.6
 
     mkdir -p /workdir
-    chmod 777 /workdir
+    sudo chmod -R 777 /workdir
+    
+    export JULIA_PKGDIR=/workdir/.julia
     
     /opt/julia-0.6/bin/julia -e 'Pkg.init()'
     /opt/julia-0.6/bin/julia -e 'Pkg.add("Knet")'
