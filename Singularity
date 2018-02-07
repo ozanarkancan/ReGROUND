@@ -5,6 +5,16 @@ From: ubuntu:latest
 
     echo "ReGROUND image. This will be the whole pipeline."
 
+%environment
+   
+   ROS_DISTRO=lunar
+   LANG=C.UTF-8
+   LC_ALL=C.UTF-8
+   export ROS_DISTRO LANG LC_ALL
+   export LD_LIBRARY_PATH=/usr/lib:/usr/lib64:$LD_LIBRARY_PATH
+   export PATH=/opt/julia-0.6/bin:$PATH
+   export JULIA_PKGDIR=/workdir/.julia
+
 %post
  
    echo "Here we are installing software and other dependencies for the container!"
@@ -37,17 +47,13 @@ From: ubuntu:latest
     mkdir -p /opt/julia-0.6.2-dev && \
     curl -s -L https://julialang-s3.julialang.org/bin/linux/x64/0.6/julia-0.6.2-linux-x86_64.tar.gz | tar -C /opt/julia-0.6.2-dev -x -z --strip-components=1 -f -
     ln -fs /opt/julia-0.6.2-dev /opt/julia-0.6
+
+    mkdir -p /workdir
+    chmod 777 /workdir
     
+    /opt/julia-0.6/bin/julia -e 'Pkg.init()'
+    /opt/julia-0.6/bin/julia -e 'Pkg.add("Knet")'
     /opt/julia-0.6/bin/julia -e 'Pkg.add("RobotOS")'
     /opt/julia-0.6/bin/julia -e 'Pkg.add("JLD")'
     /opt/julia-0.6/bin/julia -e 'Pkg.add("ArgParse")'
     /opt/julia-0.6/bin/julia -e 'Pkg.add("LightXML")'
-
-%environment
-   
-   ROS_DISTRO=lunar
-   LANG=C.UTF-8
-   LC_ALL=C.UTF-8
-   export ROS_DISTRO LANG LC_ALL
-   export LD_LIBRARY_PATH=/usr/lib:/usr/lib64:$LD_LIBRARY_PATH
-   export PATH=/opt/julia-0.6/bin:$PATH
