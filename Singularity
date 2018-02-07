@@ -23,6 +23,7 @@ From: ubuntu:latest
     git \
     vim \
     libxml2 \
+    wget \
     curl \
     cmake \
     
