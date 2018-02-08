@@ -58,4 +58,10 @@ From: ubuntu:latest
 
     rm -rf /workdir/.julia/.cache
     rm -rf /workdir/.julia/lib
+
+    source /opt/ros/lunar/setup.bash
+    mkdir -p /workdir/rg/src
+    cd /workdir/src
+    catkin_init_workspace
+
     chmod -R 777 /workdir
