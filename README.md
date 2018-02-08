@@ -4,21 +4,36 @@
 
 ### USAGE
 
-### Creating the overlay image and completing the setup
-
 * Pull the base image
 ```
 singularity pull --name RG.simg shub://ozanarkancan/ReGROUND:np
 ```
+
+* This image is not complete due to the cuda and ros requirements. You should add to created overlay image 
+or create that image and complete the setup.
+
+* You can dowload the created overlay image from (here)[http://ai.ku.edu.tr/download/reground/overlay.simg] .
+
+* Connect to the container with the overlayed image. Don't forget to bind your cuda and cudnn paths
+```
+singularity shell --bind <your cuda path>:/usr/local/cuda,<your cudnn path>:/opt/cudnn --overlay overlay.simg --nv RG.simg
+```
+
+### Creating the overlay image and completing the setup
 
 * Create the overlay image
 ```
 singularity image.create --size 2048 overlay.simg
 ```
 
-* Connect to the container with overlayed image. Don't forget to bind your cuda and cudnn paths
+* If you need more space, you can expand this image later
 ```
-singularity shell --bind <your cuda path>:/usr/local/cuda,<your cudnn path>:/opt/cudnn --overlay overlay.img --nv RG.simg
+singularity image.expand overlay.simg
+```
+
+* Connect to the container with the overlayed image. Don't forget to bind your cuda and cudnn paths
+```
+singularity shell --bind <your cuda path>:/usr/local/cuda,<your cudnn path>:/opt/cudnn --overlay overlay.simg --nv RG.simg
 ```
 
 * Build Knet
