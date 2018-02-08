@@ -9,7 +9,7 @@
 singularity pull --name RG.simg shub://ozanarkancan/ReGROUND:np
 ```
 
-* This image is not complete due to the cuda and ros requirements. You should add to created overlay image 
+* This image is not complete due to the cuda and ros requirements. You should add the created overlay image 
 or create that image and complete the setup.
 
 * You can dowload the created overlay image from [here](http://ai.ku.edu.tr/download/reground/overlay.simg) .
