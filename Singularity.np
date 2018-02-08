@@ -59,7 +59,7 @@ From: ubuntu:latest
     rm -rf /workdir/.julia/.cache
     rm -rf /workdir/.julia/lib
 
-    sh /opt/ros/lunar/setup.bash
+    bash /opt/ros/lunar/setup.bash
     mkdir -p /workdir/rg/src
     cd /workdir/src
     catkin_init_workspace
