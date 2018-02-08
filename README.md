@@ -12,9 +12,9 @@ singularity pull --name RG.simg shub://ozanarkancan/ReGROUND:np
 * This image is not complete due to the cuda and ros requirements. You should add to created overlay image 
 or create that image and complete the setup.
 
-* You can dowload the created overlay image from (here)[http://ai.ku.edu.tr/download/reground/overlay.simg] .
+* You can dowload the created overlay image from [here](http://ai.ku.edu.tr/download/reground/overlay.simg) .
 
-* Connect to the container with the overlayed image. Don't forget to bind your cuda and cudnn paths
+* Connect to the container with the overlayed image. Don't forget to bind your cuda and cudnn paths.
 ```
 singularity shell --bind <your cuda path>:/usr/local/cuda,<your cudnn path>:/opt/cudnn --overlay overlay.simg --nv RG.simg
 ```
@@ -31,7 +31,7 @@ singularity image.create --size 2048 overlay.simg
 singularity image.expand overlay.simg
 ```
 
-* Connect to the container with the overlayed image. Don't forget to bind your cuda and cudnn paths
+* Connect to the container with the overlayed image. Don't forget to bind your cuda and cudnn paths.
 ```
 singularity shell --bind <your cuda path>:/usr/local/cuda,<your cudnn path>:/opt/cudnn --overlay overlay.simg --nv RG.simg
 ```
@@ -67,6 +67,21 @@ source /workdir/rg/devel/setup.bash
 cd /workdir/rg/src/neuralpredicate/scripts
 roslaunch np.launch
 ```
+
+### Usage on the kuacc cluster
+
+* Load necessary modules
+```
+module load cuda/9.0
+module load cudnn/7.0.4/cuda-9.0
+module load singularity
+```
+
+* Set SINGULARITY_CACHEDIR as your scratch
+```
+export SINGULARITY_CACHEDIR=/scratch/users/username
+```
+
 ### DEPENDENCIES
 * Singularity
 * Cuda drivers and libraries
