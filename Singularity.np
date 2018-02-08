@@ -61,7 +61,7 @@ From: ubuntu:latest
 
     bash /opt/ros/lunar/setup.bash
     mkdir -p /workdir/rg/src
-    cd /workdir/src
+    cd /workdir/rg/src
     catkin_init_workspace
 
     chmod -R 777 /workdir
