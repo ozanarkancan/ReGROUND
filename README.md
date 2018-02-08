@@ -61,7 +61,7 @@ catkin_make
 source /workdir/rg/devel/setup.bash
 ```
 
-* No you are ready to run the package
+* Now you are ready to run the package
 * Test it by running the launch file
 ```
 cd /workdir/rg/src/neuralpredicate/scripts
