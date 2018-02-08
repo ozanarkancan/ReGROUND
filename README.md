@@ -82,6 +82,11 @@ module load singularity
 export SINGULARITY_CACHEDIR=/scratch/users/username
 ```
 
+* On a compute node with gpu
+```
+singularity shell --bind /usr/local/cuda-9.0/:/usr/local/cuda,/kuacc/apps/cudnn/v7.0.4_CUDA_9.0:/opt/cudnn --overlay overlay.img --nv RG.simg
+```
+
 ### DEPENDENCIES
 * Singularity
 * Cuda drivers and libraries
