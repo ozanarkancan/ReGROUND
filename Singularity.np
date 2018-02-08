@@ -8,7 +8,7 @@ From: ubuntu:latest
    LC_ALL=C.UTF-8
    export ROS_DISTRO LANG LC_ALL
    export LD_LIBRARY_PATH=/usr/lib:/usr/lib64:/usr/local/cuda/lib64:/usr/local/cuda/lib:/opt/cudnn/lib64:$LD_LIBRARY_PATH
-   export PATH=/opt/julia-0.6/bin:/usr/local/cuda/bin$PATH
+   export PATH=/opt/julia-0.6/bin:/usr/local/cuda/bin:$PATH
    export JULIA_PKGDIR=/workdir/.julia
 
 %post
