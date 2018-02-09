@@ -16,6 +16,11 @@ From: ubuntu:latest
    echo "Here we are installing software and other dependencies for the container!"
    apt-get update
    apt-get install -y \
+    build-essential \
+    libzmq3-dev \
+    pkg-config \
+    python \
+    python-dev \
     git \
     vim \
     libxml2 \
@@ -63,6 +68,9 @@ From: ubuntu:latest
     mkdir -p /workdir/rg/src
 
     chmod -R 777 /workdir
-    
+
+    pip install spacy
+    python -m spacy download en_core_web_lg
+
     mkdir -p /opt/cudnn
     mkdir -p /usr/local/cuda
