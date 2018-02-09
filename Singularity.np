@@ -60,6 +60,7 @@ From: ubuntu:latest
     /opt/julia-0.6/bin/julia -e 'Pkg.add("JLD")'
     /opt/julia-0.6/bin/julia -e 'Pkg.add("ArgParse")'
     /opt/julia-0.6/bin/julia -e 'Pkg.add("LightXML")'
+    /opt/julia-0.6/bin/julia -e 'Pkg.add("PyCall")'
 
     rm -rf /workdir/.julia/.cache
     rm -rf /workdir/.julia/lib
