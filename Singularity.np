@@ -21,6 +21,7 @@ From: ubuntu:latest
     pkg-config \
     python \
     python-dev \
+    python-pip \
     git \
     vim \
     libxml2 \
