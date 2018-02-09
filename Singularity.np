@@ -26,6 +26,7 @@ From: ubuntu:latest
     libxml2 \
     wget \
     curl \
+    unzip \
     cmake \
     
    apt-get update && apt-get install -y --no-install-recommends \
